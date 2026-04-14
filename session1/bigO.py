@@ -1,24 +1,33 @@
 ## Example -----------------------
 
+
 # def linear_search(lst, target):
 #     for item in lst:
 #         if item == target:
 #             return True
 #     return False
 
-## print(linear_search([4,10,5], 10))
+
+# print(linear_search([4, 10, 5], 10))
 
 ## Exercise -----------------------
+import logging
+import time
 
-count = 0
+logger = logging.getLogger(__name__)
 
-def recursive(n):
+
+def recursive(n: int, count=0) -> tuple:
+    logging.basicConfig(filename="./session1/recursive.log", level=logging.INFO)
     if n == 1:
-        return 1
-    else:
-        global count 
-        count += 1
-        return n * recursive(n - 1)
+        return 1, count
+    count += 1
+    start = time.perf_counter()
+    logger.info(f"Started, exec time: {start}")
+    result, count = recursive(n - 1, count)
+    end = time.perf_counter()
+    logger.info(f"Finish, exec time: {end}")
+    return n * result, count
+
 
 print(recursive(10))
-print(f"The function was called {count} times")

@@ -1,15 +1,21 @@
 ## Session 1 Challenge with Binary Search instead of Bubble Sort
 
-numbers_challenge = [1, 6, 8, 4, 2, 9, 7, 10, 3, 5, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80]
-challenge_count = 0
+numbers = [1, 2, 3, 4, 5, 6]
+import logging
+import timeit
 
-def binary_search(array):
-    global challenge_count
-    challenge_count += 1
-    array.sort()
-    mid = (array[0] + array[-1]) // 2
-    return print(f"Mid: {mid}, Count: {challenge_count}")
+logger = logging.getLogger(__name__)
 
-binary_search(numbers_challenge)
 
-                
+def binary_search(list: list):
+    logging.basicConfig(filename="./session1/challenge.log", level=logging.INFO)
+    start = timeit.timeit()
+    logger.info(f"Started, exec time: {start}")
+    ordered_list = sorted(list)
+    mid = (ordered_list[0] + ordered_list[-1]) / 2
+    end = timeit.timeit()
+    logger.info(f"Finished, exec time: {end}")
+    return print(f"Mid: {mid}")
+
+
+binary_search(numbers)
