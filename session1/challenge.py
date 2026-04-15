@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 
 def binary_search(list: list):
-    logging.basicConfig(filename="./session1/challenge.log", level=logging.INFO)
+    logging.basicConfig(filename="./challenge.log", level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
     start = timeit.timeit()
     logger.info(f"Started, exec time: {start}")
     ordered_list = sorted(list)

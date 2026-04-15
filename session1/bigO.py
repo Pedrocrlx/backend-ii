@@ -16,9 +16,8 @@ import time
 
 logger = logging.getLogger(__name__)
 
-
 def recursive(n: int, count=0) -> tuple:
-    logging.basicConfig(filename="./session1/recursive.log", level=logging.INFO)
+    logging.basicConfig(filename="./recursive.log", level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
     if n == 1:
         return 1, count
     count += 1
@@ -28,6 +27,5 @@ def recursive(n: int, count=0) -> tuple:
     end = time.perf_counter()
     logger.info(f"Finish, exec time: {end}")
     return n * result, count
-
 
 print(recursive(10))
