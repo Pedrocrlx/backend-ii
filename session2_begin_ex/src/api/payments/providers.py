@@ -1,4 +1,4 @@
-from adapter import PaymentBaseAdapter
+from .adapter import PaymentBaseAdapter
 
 class MBWayPayment(PaymentBaseAdapter):
     async def pay(self, payload: dict) -> bool:
