@@ -10,45 +10,51 @@
 
 from abc import ABC, abstractmethod
 
+
 class Shape(ABC):
     """Abstraction Shape class"""
-    def __init__(self,name: str) -> str:
+
+    def __init__(self, name: str):
         return name
-        
+
     @abstractmethod
     def describe(self) -> str:
         pass
-    
+
+
 class Circle(Shape):
     """Concrete classes for Circle"""
-    def describe(self) -> str:
-        return self.name
-    
-class Square:
+
+    def __init__(self, name: str):
+        self.name = name
+
+
+class Square(Shape):
     """Concrete classes for Square"""
-    def describe(self) -> str:
-        return self.name
 
-class FactoryShape:
-    """Creation of circle and square shapes"""
-    factory_stock = {}
-    
-    def create_circle(self,name: str) -> str:
-        shape_type = "Circle"
-        FactoryShape.factory_stock.setdefault(name, shape_type)
-        return f"{name} circle was created type:{shape_type}"
-    
-    def create_square(self,name: str) -> str:
-        shape_type = "Square"
-        FactoryShape.factory_stock.setdefault(name, shape_type)
-        return f"{name} square was created type: {shape_type}"
-    
-factory = FactoryShape()
+    def __init__(self, name: str):
+        self.name = name
 
-circle = factory.create_circle("Pedro Redondo")
-square = factory.create_square("Pedro Quadrado")
 
-print(circle.describe)
+# class FactoryShape:
+#     """Creation of circle and square shapes"""
+
+#     factory_stock = {}
+
+#     def create_circle(self, name: str) -> str:
+#         shape_type = "Circle"
+#         FactoryShape.factory_stock.setdefault(name, shape_type)
+#         return f"{name} circle was created type:{shape_type}"
+
+#     def create_square(self, name: str) -> str:
+#         shape_type = "Square"
+#         FactoryShape.factory_stock.setdefault(name, shape_type)
+#         return f"{name} square was created type: {shape_type}"
+
+
+factory = Circle.describe
+
+print(Circle.describe)
 
 # keys = FactoryShape.factory_stock.keys()
 # values = FactoryShape.factory_stock.values()
