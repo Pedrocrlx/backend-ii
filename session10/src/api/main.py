@@ -1,7 +1,8 @@
 from fastapi import FastAPI
-from payments.adapter import PaymentBaseAdapter
-from payments.factory import PaymentProviderFactory
-from schemas.models import Payment
+from strawberry.fastapi import GraphQLRouter
+from api.payments.adapter import PaymentBaseAdapter
+from api.payments.factory import PaymentProviderFactory
+from api.schemas.models import Payment
 
 app = FastAPI()
 

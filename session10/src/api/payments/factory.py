@@ -1,5 +1,5 @@
-from payments.adapter import PaymentBaseAdapter
-from payments.providers import MBWayPayment, PayPalPayment
+from .adapter import PaymentBaseAdapter
+from .providers import MBWayPayment, PayPalPayment
 
 class PaymentProviderFactory:
     """Factory class to create payment provider instances based on the provider name."""
