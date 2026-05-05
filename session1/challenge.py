@@ -1,21 +1,16 @@
-## Session 1 Challenge with Binary Search instead of Bubble Sort
+## Session 1 Challenge with Bubble Sort
 
-numbers = [1, 2, 3, 4, 5, 6]
-import logging
-import timeit
+def bubble_sort(array:list):
+    """Bubble sort algorithm"""
+    for i in range(len(array) -1): ## i represent index
+        for j in range(len(array) - 1 - i): ## j represent value not index
+            if array[j] > array[j+1]:
+                array[j], array[j+1] = array[j+1], array[j] ## change indexes
+            continue
+    return array
 
-logger = logging.getLogger(__name__)
+array = [5,3,4,1,2,9,8,6,7]
+print(f"Input: {array}")
 
-
-def binary_search(list: list):
-    logging.basicConfig(filename="./challenge.log", level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
-    start = timeit.timeit()
-    logger.info(f"Started, exec time: {start}")
-    ordered_list = sorted(list)
-    mid = (ordered_list[0] + ordered_list[-1]) / 2
-    end = timeit.timeit()
-    logger.info(f"Finished, exec time: {end}")
-    return print(f"Mid: {mid}")
-
-
-binary_search(numbers)
+sorted_array = bubble_sort(array)
+print(f"Output: {sorted_array}")
